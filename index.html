@@ -1,34 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="index.js"></script>
+    <title>2D Breakout Game</title>
+    <script src="index.js" defer></script>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        canvas{
-            background: #eeeeee;
-            display: block;
+
+        body {
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .game-container {
+            max-width: 520px;
             margin: 0 auto;
-        }   
-        button{
+        }
+
+        canvas {
+            background: #eee;
             display: block;
-            margin: 0 auto;
-            width: 100px;
-            height: 50px;
-            font-size: 20px;
+            border: 2px solid #333;
+            margin: 20px auto;
+        }
+
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
             cursor: pointer;
+            border: 1px solid #333;
+            background: #fff;
+            color: #333;
+        }
+
+        #runButton:disabled,
+        #stopButton:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .instructions {
+            color: #666;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
         }
     </style>
 </head>
+
 <body>
-    <canvas id="myCanvas" width="480" height="320"></canvas>
-    <button id="runButton">Run</button>
-    <button id="stopButton">Stop</button>
+    <h1>2D Breakout Game</h1>
+    <div class="game-container">
+        <div class="info-panel">
+            <div>Score: <span id="score">0</span></div>
+            <div>Lives: <span id="lives">3</span></div>
+        </div>
+        <canvas id="myCanvas" width="480" height="320"></canvas>
+        <div class="controls">
+            <button id="runButton">Start Game</button>
+            <button id="stopButton" disabled>Stop</button>
+        </div>
+    </div>
+    <div class="instructions">
+        <p>Use arrow keys to move the paddle. Break all bricks to win!</p>
+    </div>
 </body>
+
 </html>
